@@ -1,0 +1,22 @@
+- if @tasks.empty?
+	%span.text-warning Brak zadań!
+- else
+	%table.table.table-hover.table-bordered
+		%thead
+			%tr
+				%th Zadanie
+				%th Rozpoczęcie
+				%th Zakończenie
+				%th Opcje
+		%tbody
+			- @tasks.each do |task|
+				%tr
+					%td
+						%strong= task.title
+					%td.text-info= task.created_at
+					%td.text-success= task.completed
+					%td
+						= link_to task_path(task), remote: true, method: :delete, data: {confirm: "Czy napewno jest usunąć zadanie: #{task.title}?"} do
+							%i.icon-remove
+						= link_to edit_task_path(task), remote: true do
+							%i.icon-edit
