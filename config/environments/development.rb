@@ -26,4 +26,9 @@ Todo::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # Mailer
+  config.action_mailer.default_url_options = { :host => '192.168.1.8:3000'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 end

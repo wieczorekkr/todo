@@ -13,5 +13,10 @@
 						ToDo
 					%p
 						Witajcie w tutorialu aplikacji ToDo
+					.text-center
 					= link_to 'Nowe zadanie', new_task_path, class: 'btn btn-primary', remote: true
+					.text-center
+						%strong= current_user.email
+					.text-center
+						= link_to 'wyloguj', destroy_user_session_path, method: :delete
 		= yield
